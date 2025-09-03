@@ -1,0 +1,6 @@
+Laks_et_al/data/*
+*.DS_Store*
+*.Rhistory*
+Funnel_et_al/signatures_dataset/*
+benchmark/*data*
+compare_methods/*data*
