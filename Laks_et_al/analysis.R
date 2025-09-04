@@ -30,7 +30,7 @@ leaves_lenghts_df <- data.frame(
 ) %>% dplyr::left_join(clone_df, by = "cell_id") %>%
   dplyr::left_join(clone_snvs_df, by = "clone_id")
 
-leaves_lenghts_df %>%
+p_SNV_CNA_corr = leaves_lenghts_df %>%
   dplyr::group_by(clone_id) %>%
   dplyr::mutate(avg_length = mean(length), sd_length = sd(length)) %>%
   dplyr::select(clone_id, s, avg_length, sd_length) %>%
@@ -45,7 +45,8 @@ leaves_lenghts_df %>%
        y = "Average bridges SCNA root-to-leaf length",
        col = "Laks et al. clone id")
 
-ggsave("plot/SNV_CNA_correlation.pdf", width = 9, height = 7, plot = last_plot())
+p_SNV_CNA_corr
+ggsave("plot/SNV_CNA_correlation.pdf", width = 9, height = 7, plot = p_SNV_CNA_corr)
 
 cn_data = read.delim("data/ov2295_cell_cn.csv", sep = ",")
 clone_df = read.delim("data/ov2295_clone_clusters.csv", sep = ",")

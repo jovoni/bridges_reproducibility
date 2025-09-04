@@ -4,3 +4,5 @@ Laks_et_al/data/*
 Funnel_et_al/signatures_dataset/*
 benchmark/*data*
 compare_methods/*data*
+compare_methods/vs_competitors/results/*/*
+compare_methods/method_details/results/*
