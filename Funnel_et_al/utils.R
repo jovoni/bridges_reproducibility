@@ -68,8 +68,25 @@ clonal_discordance = function(sample_id, mode) {
   tree_pruned <- keep.tip(sitka_tree, keep)
   labels_pruned <- labels_df_sitka %>%
     dplyr::filter(cell_id %in% keep)
-
   d2 = dplyr::tibble(sample_id = sample_id, value = clonal_discordance_from_df(tree = tree_pruned, labels_pruned, mode), method = "sitka")
+  
+  # Lazac
+  labels_df = get_labels(sample_id)
+  
+  if (file.exists(paste0("signatures_dataset/lazac_trees/",sample_id,"_hscn_tree.newick"))) {
+    newick_text = read_file(paste0("signatures_dataset/lazac_trees/",sample_id,"_hscn_tree.newick"))
+    newick_text = paste0(newick_text, ";")
+    tree = ape::read.tree(text = newick_text)
+    keep = intersect(labels_df$cell_id, tree$tip.label)
+    tree_pruned <- keep.tip(tree, keep)
+    #Xdiss = get_X_for_dissimilarity(sample_id)
+    labels_pruned <- labels_df %>%
+      dplyr::filter(cell_id %in% keep)
+    d3 = dplyr::tibble(sample_id = sample_id, value = clonal_discordance_from_df(tree = tree_pruned, labels_pruned, mode), method = "lazac")
+    
+    return(dplyr::bind_rows(d1, d2, d3))
+  }
+  
   dplyr::bind_rows(d1, d2)
 }
 
@@ -254,6 +271,18 @@ compute_sibling_similarities = function(sample_id) {
   keep = intersect(rownames(Xdiss), tree$tip.label)
   tree_pruned <- keep.tip(tree, keep)
   bridges_diss = sibling_dissimilarity_discrete_rcpp(tree_pruned, Xdiss)
+  
+  # Read lazac fit
+  if (file.exists(paste0("signatures_dataset/lazac_trees/",sample_id,"_hscn_tree.newick"))) {
+    newick_text = read_file(paste0("signatures_dataset/lazac_trees/",sample_id,"_hscn_tree.newick"))
+    newick_text = paste0(newick_text, ";")
+    tree = ape::read.tree(text = newick_text)
+    keep = intersect(rownames(Xdiss), tree$tip.label)
+    tree_pruned <- keep.tip(tree, keep)
+    lazac_diss = sibling_dissimilarity_discrete_rcpp(tree_pruned, Xdiss)  
+  } else {
+    lazac_diss = NULL
+  }
   
   # Read sitka tree
   tree = ape::read.tree(paste0("signatures_dataset/sitka_trees/",sample_id,"-cn-tree.newick"))

@@ -215,6 +215,31 @@ get_youden_index = function(s) {
     tie_break = "smallest"         # prefer smallest clade when tied
   )
   
+  # Lazac
+  if (file.exists(paste0("signatures_dataset/lazac_trees/",s,"_hscn_tree.newick"))) {
+    newick_text = read_file(paste0("signatures_dataset/lazac_trees/",s,"_hscn_tree.newick"))
+    newick_text = paste0(newick_text, ";")
+    tree = ape::read.tree(text = newick_text)
+    snv_df = snv_all[snv_all$patient == s,] %>% 
+      dplyr::rename(alt_count = alt_counts)
+    keep = intersect(snv_df$cell_id, tree$tip.label)
+    tree <- keep.tip(tree, keep)
+    snv_df = snv_df %>% dplyr::filter(cell_id %in% keep)
+    snv_df = snv_df %>% dplyr::select(cell_id, chr, start, alt_count) %>% 
+      dplyr::rename(chromosome = chr, position = start)
+    
+    res_lazac <- tree_gof_youden(
+      tree,
+      snv_df,
+      min_alt = 2L,                 # presence if alt_count >= 1
+      min_cells_with_alt = 3L,      # filter very rare loci
+      min_cells_without_alt = 3L,   # filter ubiquitous loci
+      tie_break = "smallest"         # prefer smallest clade when tied
+    )
+  } else {
+    res_lazac = list(J = NA)
+  }
+  
   # Sitka second
   tree = ape::read.tree(file = paste0("signatures_dataset/sitka_trees/",s,"-cn-tree.newick"))
   snv_df = snv_all[snv_all$patient == s,] %>% 
@@ -237,13 +262,13 @@ get_youden_index = function(s) {
 
   dplyr::bind_rows(
     dplyr::tibble(Jouden = res_bridges$J, mehtod = "bridges"),
-    dplyr::tibble(Jouden = res_sitka$J, mehtod = "sitka")
+    dplyr::tibble(Jouden = res_sitka$J, mehtod = "sitka"),
+    dplyr::tibble(Jouden = res_lazac$J, mehtod = "lazac")
   ) %>% dplyr::mutate(sample_id = s)
 }
 
 samples = get_sample_names()
 youden_df = lapply(samples, function(s) get_youden_index(s))
 youden_df = do.call("rbind", youden_df)
+
 saveRDS(youden_df, "results/metrics/youden.rds")
-
-
