@@ -1,0 +1,3 @@
+Processing job 6: sim_id=ed5a080b8e60ac56
+Running medicc2 on ../data/ed5a080b8e60ac56/medicc_input.csv -> results/ed5a080b8e60ac56/medicc2
+Execution time: 271.251665475 seconds (saved to results/ed5a080b8e60ac56/medicc2/medicc_time.txt)

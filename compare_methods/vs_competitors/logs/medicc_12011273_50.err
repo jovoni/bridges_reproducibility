@@ -1,0 +1,17 @@
+2025-06-06 23:16:53,706 - INFO medicc-main:	Reading FST.
+2025-06-06 23:16:53,710 - INFO medicc-main:	Reading and parsing input data.
+2025-06-06 23:17:01,500 - WARNING medicc.io:	Duplicated entries found in input data: Index(['cell_493', 'cell_494', 'cell_804', 'cell_956', 'cell_985', 'cell_986'], dtype='object', name='sample_id')
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/io.py:300: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  tmp = tmp.stack('sample_id')
+2025-06-06 23:17:03,122 - INFO medicc-main:	Running main reconstruction routine.
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/core.py:262: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  .stack('sample_id')
+2025-06-07 00:21:09,575 - INFO medicc-main:	Output is saved as results/28315073443dd04b/medicc2/medicc_input...
+2025-06-07 00:21:09,575 - INFO medicc-main:	Writing pairwise distance matrices.
+2025-06-07 00:21:09,727 - INFO medicc-main:	Writing trees.
+2025-06-07 00:21:37,588 - INFO medicc-main:	Writing patient summary.
+2025-06-07 00:21:37,591 - INFO medicc-main:	Final tree length 1848.0.
+2025-06-07 00:21:37,593 - INFO medicc-main:	Plotting copy-number profiles (heatmap).
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/plot.py:903: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  chr_ends = chr_ends.reset_index().groupby('chrom').max()['end_pos']
+2025-06-07 00:23:09,972 - INFO medicc-main:	Done.

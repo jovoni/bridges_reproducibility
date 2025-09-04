@@ -1,0 +1,39 @@
+Loading required package: tidyverse
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning messages:
+1: package ‘tidyverse’ was built under R version 4.4.1 
+2: package ‘ggplot2’ was built under R version 4.4.3 
+3: package ‘tibble’ was built under R version 4.4.3 
+4: package ‘tidyr’ was built under R version 4.4.1 
+5: package ‘readr’ was built under R version 4.4.1 
+6: package ‘dplyr’ was built under R version 4.4.1 
+7: package ‘stringr’ was built under R version 4.4.1 
+8: package ‘forcats’ was built under R version 4.4.1 
+9: package ‘lubridate’ was built under R version 4.4.2 
+
+Attaching package: ‘ape’
+
+The following object is masked from ‘package:dplyr’:
+
+    where
+
+Warning message:
+In dir.create(RES_DIR, recursive = T) : 'results' already exists
+Pre-processing input...
+Computing G matrices using greedy_fast ...
+Computing B matrices using bfb_fast ...
+Computing final D matrix...
+Building tree...
+Reconstruct events...
+Warning message:
+In dir.create(file.path(RES_DIR, sim_id), recursive = T) :
+  'results//0f215b64d003e7ee' already exists

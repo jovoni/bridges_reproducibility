@@ -1,0 +1,19 @@
+2025-06-06 22:58:36,484 - INFO medicc-main:	Reading FST.
+2025-06-06 22:58:36,488 - INFO medicc-main:	Reading and parsing input data.
+2025-06-06 22:58:37,084 - WARNING medicc.io:	Integer CN > maxcn 8, capping.
+2025-06-06 22:58:37,090 - WARNING medicc.io:	Integer CN > maxcn 8, capping.
+2025-06-06 22:58:41,878 - WARNING medicc.io:	Duplicated entries found in input data: Index(['cell_589', 'cell_590', 'cell_749', 'cell_750', 'cell_869', 'cell_870'], dtype='object', name='sample_id')
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/io.py:300: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  tmp = tmp.stack('sample_id')
+2025-06-06 22:58:43,199 - INFO medicc-main:	Running main reconstruction routine.
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/core.py:262: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  .stack('sample_id')
+2025-06-07 00:11:47,838 - INFO medicc-main:	Output is saved as results/1cca7da52b4e750c/medicc2/medicc_input...
+2025-06-07 00:11:47,839 - INFO medicc-main:	Writing pairwise distance matrices.
+2025-06-07 00:11:48,023 - INFO medicc-main:	Writing trees.
+2025-06-07 00:12:14,110 - INFO medicc-main:	Writing patient summary.
+2025-06-07 00:12:14,113 - INFO medicc-main:	Final tree length 2023.0.
+2025-06-07 00:12:14,115 - INFO medicc-main:	Plotting copy-number profiles (heatmap).
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/plot.py:903: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  chr_ends = chr_ends.reset_index().groupby('chrom').max()['end_pos']
+2025-06-07 00:13:44,014 - INFO medicc-main:	Done.

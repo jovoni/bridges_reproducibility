@@ -1,0 +1,24 @@
+2025-06-06 23:26:03,755 - INFO medicc-main:	Reading FST.
+2025-06-06 23:26:03,759 - INFO medicc-main:	Reading and parsing input data.
+2025-06-06 23:26:04,179 - WARNING medicc.io:	Integer CN > maxcn 8, capping.
+2025-06-06 23:26:06,862 - WARNING medicc.io:	Duplicated entries found in input data: Index(['cell_154', 'cell_473', 'cell_474', 'cell_570', 'cell_577', 'cell_578',
+       'cell_596', 'cell_624', 'cell_657', 'cell_689', 'cell_690', 'cell_698',
+       'cell_710', 'cell_758', 'cell_797', 'cell_813', 'cell_814', 'cell_845',
+       'cell_846', 'cell_858', 'cell_883', 'cell_884', 'cell_923', 'cell_924',
+       'cell_932', 'cell_935', 'cell_936', 'cell_937', 'cell_938', 'cell_951',
+       'cell_952', 'cell_961', 'cell_962', 'cell_989', 'cell_990'],
+      dtype='object', name='sample_id')
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/io.py:300: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  tmp = tmp.stack('sample_id')
+2025-06-06 23:26:07,657 - INFO medicc-main:	Running main reconstruction routine.
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/core.py:262: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  .stack('sample_id')
+2025-06-07 00:28:55,012 - INFO medicc-main:	Output is saved as results/edbcbcfc3a9aa82d/medicc2/medicc_input...
+2025-06-07 00:28:55,013 - INFO medicc-main:	Writing pairwise distance matrices.
+2025-06-07 00:28:55,250 - INFO medicc-main:	Writing trees.
+2025-06-07 00:29:17,921 - INFO medicc-main:	Writing patient summary.
+2025-06-07 00:29:17,924 - INFO medicc-main:	Final tree length 1806.0.
+2025-06-07 00:29:17,925 - INFO medicc-main:	Plotting copy-number profiles (heatmap).
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/plot.py:903: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  chr_ends = chr_ends.reset_index().groupby('chrom').max()['end_pos']
+2025-06-07 00:30:23,833 - INFO medicc-main:	Done.

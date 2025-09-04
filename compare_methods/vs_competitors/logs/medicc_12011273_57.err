@@ -1,0 +1,22 @@
+2025-06-06 23:26:03,755 - INFO medicc-main:	Reading FST.
+2025-06-06 23:26:03,759 - INFO medicc-main:	Reading and parsing input data.
+2025-06-06 23:26:04,164 - WARNING medicc.io:	Integer CN > maxcn 8, capping.
+2025-06-06 23:26:06,768 - WARNING medicc.io:	Duplicated entries found in input data: Index(['cell_425', 'cell_508', 'cell_524', 'cell_599', 'cell_601', 'cell_602',
+       'cell_611', 'cell_612', 'cell_629', 'cell_630', 'cell_639', 'cell_664',
+       'cell_68', 'cell_719', 'cell_728', 'cell_752', 'cell_833', 'cell_834',
+       'cell_845', 'cell_944'],
+      dtype='object', name='sample_id')
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/io.py:300: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  tmp = tmp.stack('sample_id')
+2025-06-06 23:26:07,499 - INFO medicc-main:	Running main reconstruction routine.
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/core.py:262: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  .stack('sample_id')
+2025-06-07 00:34:08,908 - INFO medicc-main:	Output is saved as results/3352609593e69340/medicc2/medicc_input...
+2025-06-07 00:34:08,909 - INFO medicc-main:	Writing pairwise distance matrices.
+2025-06-07 00:34:09,128 - INFO medicc-main:	Writing trees.
+2025-06-07 00:34:31,093 - INFO medicc-main:	Writing patient summary.
+2025-06-07 00:34:31,095 - INFO medicc-main:	Final tree length 1809.0.
+2025-06-07 00:34:31,097 - INFO medicc-main:	Plotting copy-number profiles (heatmap).
+/home/santacg/medicc_env/lib/python3.10/site-packages/medicc/plot.py:903: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  chr_ends = chr_ends.reset_index().groupby('chrom').max()['end_pos']
+2025-06-07 00:35:34,054 - INFO medicc-main:	Done.

@@ -1,0 +1,300 @@
+Running DICE on ../data/cadd456b3a9334a5/dice_input.tsv -> results/cadd456b3a9334a5/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.847949273 seconds (saved to results/cadd456b3a9334a5/dice)
+Running DICE on ../data/79313fba26f66330/dice_input.tsv -> results/79313fba26f66330/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.636195792 seconds (saved to results/79313fba26f66330/dice)
+Running DICE on ../data/09a1de15403f90b8/dice_input.tsv -> results/09a1de15403f90b8/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.558271069 seconds (saved to results/09a1de15403f90b8/dice)
+Running DICE on ../data/40801ceade9bcf93/dice_input.tsv -> results/40801ceade9bcf93/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.604170218 seconds (saved to results/40801ceade9bcf93/dice)
+Running DICE on ../data/c975115635d4e66d/dice_input.tsv -> results/c975115635d4e66d/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.586553145 seconds (saved to results/c975115635d4e66d/dice)
+Running DICE on ../data/ed5a080b8e60ac56/dice_input.tsv -> results/ed5a080b8e60ac56/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.644296963 seconds (saved to results/ed5a080b8e60ac56/dice)
+Running DICE on ../data/4d23fc2e835de432/dice_input.tsv -> results/4d23fc2e835de432/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.616772738 seconds (saved to results/4d23fc2e835de432/dice)
+Running DICE on ../data/cb882d1e4ba681cd/dice_input.tsv -> results/cb882d1e4ba681cd/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.594993020 seconds (saved to results/cb882d1e4ba681cd/dice)
+Running DICE on ../data/ac5bba53be6d7dbf/dice_input.tsv -> results/ac5bba53be6d7dbf/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.628699527 seconds (saved to results/ac5bba53be6d7dbf/dice)
+Running DICE on ../data/d5752890189cec3f/dice_input.tsv -> results/d5752890189cec3f/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.620259539 seconds (saved to results/d5752890189cec3f/dice)
+Running DICE on ../data/6376a4b7d0c98b0e/dice_input.tsv -> results/6376a4b7d0c98b0e/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.600823704 seconds (saved to results/6376a4b7d0c98b0e/dice)
+Running DICE on ../data/94861475f07657ca/dice_input.tsv -> results/94861475f07657ca/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.616783629 seconds (saved to results/94861475f07657ca/dice)
+Running DICE on ../data/73fca8e96d6ab77f/dice_input.tsv -> results/73fca8e96d6ab77f/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.606016569 seconds (saved to results/73fca8e96d6ab77f/dice)
+Running DICE on ../data/6cb26a4dfe8da4f1/dice_input.tsv -> results/6cb26a4dfe8da4f1/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.599765617 seconds (saved to results/6cb26a4dfe8da4f1/dice)
+Running DICE on ../data/ba79fdd31ebc167b/dice_input.tsv -> results/ba79fdd31ebc167b/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.636949268 seconds (saved to results/ba79fdd31ebc167b/dice)
+Running DICE on ../data/21cdf494e3729d5d/dice_input.tsv -> results/21cdf494e3729d5d/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.624936536 seconds (saved to results/21cdf494e3729d5d/dice)
+Running DICE on ../data/04de38a520a2f991/dice_input.tsv -> results/04de38a520a2f991/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.606907881 seconds (saved to results/04de38a520a2f991/dice)
+Running DICE on ../data/6f877519abc32a94/dice_input.tsv -> results/6f877519abc32a94/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.614556123 seconds (saved to results/6f877519abc32a94/dice)
+Running DICE on ../data/4888f15cc61ef8cf/dice_input.tsv -> results/4888f15cc61ef8cf/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.610612496 seconds (saved to results/4888f15cc61ef8cf/dice)
+Running DICE on ../data/14c1ab2b687207cb/dice_input.tsv -> results/14c1ab2b687207cb/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 2.612868481 seconds (saved to results/14c1ab2b687207cb/dice)
+Running DICE on ../data/336b6615122c9df1/dice_input.tsv -> results/336b6615122c9df1/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.244315382 seconds (saved to results/336b6615122c9df1/dice)
+Running DICE on ../data/0edd5bbd29b2c576/dice_input.tsv -> results/0edd5bbd29b2c576/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.299729311 seconds (saved to results/0edd5bbd29b2c576/dice)
+Running DICE on ../data/9c881f4feb716644/dice_input.tsv -> results/9c881f4feb716644/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.277272829 seconds (saved to results/9c881f4feb716644/dice)
+Running DICE on ../data/6b22d56a7ad7e670/dice_input.tsv -> results/6b22d56a7ad7e670/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.261181816 seconds (saved to results/6b22d56a7ad7e670/dice)
+Running DICE on ../data/bb61975a313c2dd5/dice_input.tsv -> results/bb61975a313c2dd5/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.212140709 seconds (saved to results/bb61975a313c2dd5/dice)
+Running DICE on ../data/531114e74bc4f2ba/dice_input.tsv -> results/531114e74bc4f2ba/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.205827521 seconds (saved to results/531114e74bc4f2ba/dice)
+Running DICE on ../data/d15124bc1239a29e/dice_input.tsv -> results/d15124bc1239a29e/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.158584209 seconds (saved to results/d15124bc1239a29e/dice)
+Running DICE on ../data/9ee9362c923daad7/dice_input.tsv -> results/9ee9362c923daad7/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.138272668 seconds (saved to results/9ee9362c923daad7/dice)
+Running DICE on ../data/f4dab535cd03406c/dice_input.tsv -> results/f4dab535cd03406c/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.163391520 seconds (saved to results/f4dab535cd03406c/dice)
+Running DICE on ../data/44a47eb132a9568f/dice_input.tsv -> results/44a47eb132a9568f/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.166410822 seconds (saved to results/44a47eb132a9568f/dice)
+Running DICE on ../data/7d45834079ad3037/dice_input.tsv -> results/7d45834079ad3037/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.298803119 seconds (saved to results/7d45834079ad3037/dice)
+Running DICE on ../data/009f325efa1adf0f/dice_input.tsv -> results/009f325efa1adf0f/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.340812213 seconds (saved to results/009f325efa1adf0f/dice)
+Running DICE on ../data/f45f37e26c403e64/dice_input.tsv -> results/f45f37e26c403e64/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.409668831 seconds (saved to results/f45f37e26c403e64/dice)
+Running DICE on ../data/dcdb564a1f88eeed/dice_input.tsv -> results/dcdb564a1f88eeed/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.391661551 seconds (saved to results/dcdb564a1f88eeed/dice)
+Running DICE on ../data/f097661f77aef7f2/dice_input.tsv -> results/f097661f77aef7f2/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.314785198 seconds (saved to results/f097661f77aef7f2/dice)
+Running DICE on ../data/7d67902976d87b2d/dice_input.tsv -> results/7d67902976d87b2d/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.341846427 seconds (saved to results/7d67902976d87b2d/dice)
+Running DICE on ../data/9eb9d8af6e25ae78/dice_input.tsv -> results/9eb9d8af6e25ae78/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.465379222 seconds (saved to results/9eb9d8af6e25ae78/dice)
+Running DICE on ../data/a08ce8338d3c2267/dice_input.tsv -> results/a08ce8338d3c2267/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.436344534 seconds (saved to results/a08ce8338d3c2267/dice)
+Running DICE on ../data/6da6dde1d8736516/dice_input.tsv -> results/6da6dde1d8736516/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.471165396 seconds (saved to results/6da6dde1d8736516/dice)
+Running DICE on ../data/bd4a2e3bbdffaafd/dice_input.tsv -> results/bd4a2e3bbdffaafd/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 8.407482069 seconds (saved to results/bd4a2e3bbdffaafd/dice)
+Running DICE on ../data/f5833708a9b3cd5d/dice_input.tsv -> results/f5833708a9b3cd5d/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 30.074233594 seconds (saved to results/f5833708a9b3cd5d/dice)
+Running DICE on ../data/1cca7da52b4e750c/dice_input.tsv -> results/1cca7da52b4e750c/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 29.481402479 seconds (saved to results/1cca7da52b4e750c/dice)
+Running DICE on ../data/b2e25488f10dfc04/dice_input.tsv -> results/b2e25488f10dfc04/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 29.673558913 seconds (saved to results/b2e25488f10dfc04/dice)
+Running DICE on ../data/6bc482f9461ed563/dice_input.tsv -> results/6bc482f9461ed563/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 29.978817419 seconds (saved to results/6bc482f9461ed563/dice)
+Running DICE on ../data/0d2a97956267d895/dice_input.tsv -> results/0d2a97956267d895/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 30.280547843 seconds (saved to results/0d2a97956267d895/dice)
+Running DICE on ../data/f5c7d0ebe94efac1/dice_input.tsv -> results/f5c7d0ebe94efac1/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 29.680152578 seconds (saved to results/f5c7d0ebe94efac1/dice)
+Running DICE on ../data/6fd2398c7cff97ff/dice_input.tsv -> results/6fd2398c7cff97ff/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 30.170444572 seconds (saved to results/6fd2398c7cff97ff/dice)
+Running DICE on ../data/7337ea52074f63db/dice_input.tsv -> results/7337ea52074f63db/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 29.807741228 seconds (saved to results/7337ea52074f63db/dice)
+Running DICE on ../data/2a043214ccd8d62b/dice_input.tsv -> results/2a043214ccd8d62b/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 30.165498229 seconds (saved to results/2a043214ccd8d62b/dice)
+Running DICE on ../data/28315073443dd04b/dice_input.tsv -> results/28315073443dd04b/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 30.218730069 seconds (saved to results/28315073443dd04b/dice)
+Running DICE on ../data/fcd636a05bb0489e/dice_input.tsv -> results/fcd636a05bb0489e/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 30.064181707 seconds (saved to results/fcd636a05bb0489e/dice)
+Running DICE on ../data/723444cea44a453f/dice_input.tsv -> results/723444cea44a453f/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 30.553698583 seconds (saved to results/723444cea44a453f/dice)
+Running DICE on ../data/7190708763479611/dice_input.tsv -> results/7190708763479611/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 30.711107714 seconds (saved to results/7190708763479611/dice)
+Running DICE on ../data/c8bb52350f1c3e93/dice_input.tsv -> results/c8bb52350f1c3e93/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 30.845063215 seconds (saved to results/c8bb52350f1c3e93/dice)
+Running DICE on ../data/3bc31a8b42637276/dice_input.tsv -> results/3bc31a8b42637276/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 30.428761023 seconds (saved to results/3bc31a8b42637276/dice)
+Running DICE on ../data/1b2261f9494be91f/dice_input.tsv -> results/1b2261f9494be91f/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 31.160963053 seconds (saved to results/1b2261f9494be91f/dice)
+Running DICE on ../data/3352609593e69340/dice_input.tsv -> results/3352609593e69340/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 31.280168315 seconds (saved to results/3352609593e69340/dice)
+Running DICE on ../data/0f215b64d003e7ee/dice_input.tsv -> results/0f215b64d003e7ee/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 31.609879638 seconds (saved to results/0f215b64d003e7ee/dice)
+Running DICE on ../data/edbcbcfc3a9aa82d/dice_input.tsv -> results/edbcbcfc3a9aa82d/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 31.081440716 seconds (saved to results/edbcbcfc3a9aa82d/dice)
+Running DICE on ../data/76505f1e462c121c/dice_input.tsv -> results/76505f1e462c121c/dice
+Reading data...Done
+Computing distance matrix...Done
+Constructing tree...Done
+Execution time: 31.030141766 seconds (saved to results/76505f1e462c121c/dice)
