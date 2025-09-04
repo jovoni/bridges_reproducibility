@@ -294,6 +294,7 @@ compute_sibling_similarities = function(sample_id) {
   dplyr::bind_rows(
     dplyr::tibble(name = "sitka", diss = sitka_diss),
     dplyr::tibble(name = "bridges", diss = bridges_diss),
+    dplyr::tibble(name = "lazac", diss = lazac_diss)
   ) %>% dplyr::mutate(sample_id = sample_id)
 }
 
