@@ -62,7 +62,7 @@ cn_data = cn_data %>%
 
 hm = bridges::plot_heatmap(cn_data, tree = bridges_fit$tree, to_plot = "CN", use_raster = F, ladderize = T, annotations = clone_df)
 
-png("plot/heatmap.png", width = 16, height = 10, units = "in", res = 300)
+png("plot/heatmap.pdf", width = 16, height = 10, units = "in", res = 300)
 print(hm)
 dev.off()
 
