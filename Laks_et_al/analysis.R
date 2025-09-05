@@ -60,9 +60,9 @@ cn_data = cn_data %>%
   dplyr::mutate(CN = state) %>%
   dplyr::select(cell_id, sample_id, library_id, start, end, chr, CN)
 
-hm = bridges::plot_heatmap(cn_data, tree = bridges_fit$tree, to_plot = "CN", use_raster = F, ladderize = T, annotations = clone_df)
+hm = bridges::plot_heatmap(cn_data, tree = bridges_fit$tree, to_plot = "CN", use_raster = T, ladderize = T, annotations = clone_df, raster_quality = 10)
 
-png("plot/heatmap.pdf", width = 16, height = 10, units = "in", res = 300)
+pdf("plot/heatmap.pdf", width = 16, height = 10)
 print(hm)
 dev.off()
 
