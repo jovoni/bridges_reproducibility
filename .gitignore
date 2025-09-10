@@ -6,3 +6,7 @@ benchmark/*data*
 compare_methods/*data*
 compare_methods/vs_competitors/results/*/*
 compare_methods/method_details/results/*
+compare_methods/vs_competitors/logs
+Funnel_et_al/logs
+compare_methods/vs_competitors/lazac-copy-number/
+compare_methods/vs_competitors/sitkatree/

@@ -5,7 +5,7 @@ source("utils.R")
 library(tidyverse)
 
 sample_names = get_sample_names()
-sample_id = sample_names[10]
+sample_id = sample_names[2]
 MODE = "fitch"
 
 df_clonal_discordance = lapply(sample_names, function(sample_id) {

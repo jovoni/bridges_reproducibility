@@ -17,7 +17,7 @@ res = res %>%
   dplyr::filter(n == max(n)) %>% 
   dplyr::mutate(algorithm = ifelse(algorithm == "root", "dice", algorithm))
 
-res$algorithm = factor(res$algorithm, levels = c("bridges", "medicc", "dice", "hamming", "euclidean"))
+res$algorithm = factor(res$algorithm, levels = c("bridges", "medicc", "dice", "hamming", "lazac", "sitka", "euclidean"))
 
 p_time = res %>% 
   dplyr::filter(metric == "seconds") %>% 
@@ -37,6 +37,19 @@ p_RF_normed = plot_normed_boxplots(res, "RF distance", split_by = "BFB") +
   labs(y = "Norm'ed RF distance", col = "Algorithm")
 p_RF_normed
 
+p_GRF_normed = plot_normed_boxplots(res, "Generalized RF", split_by = "BFB") +
+  scale_colour_nejm() +
+  theme(axis.ticks.x = element_blank(), axis.text.x = element_blank()) +
+  theme(legend.position = "none") +
+  labs(y = "Norm'ed GRF", col = "Algorithm")
+p_GRF_normed
+
+p_MCI_normed = plot_normed_boxplots(res, "Mutual Clustering Info", split_by = "BFB") +
+  scale_colour_nejm() +
+  theme(axis.ticks.x = element_blank(), axis.text.x = element_blank()) +
+  theme(legend.position = "none") +
+  labs(y = "Norm'ed MCI", col = "Algorithm")
+p_MCI_normed
 
 final_plot = patchwork::free(p_RF_normed) + patchwork::free(p_time) +
   plot_layout(design = "AAABB") +

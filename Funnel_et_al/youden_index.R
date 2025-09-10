@@ -9,6 +9,11 @@ source("getters.R")
 snv_annotations = fread("signatures_dataset/DLP/SNV/snv_annotations.csv.gz")
 snv_all = fread("signatures_dataset/DLP/SNV/snv_counts.csv.gz")
 
+df = fread("signatures_dataset/DLP/SV/breakends.csv.gz")
+df = fread("signatures_dataset/DLP/SV/breakpoints.csv.gz")
+# df %>% dplyr::filter(patient == s) %>% view()
+# df %>% dplyr::filter(patient == s) %>% dplyr::pull(cell_id) %>% unique() %>% length()
+
 # ---- Packages ----
 suppressPackageStartupMessages({
   library(ape)

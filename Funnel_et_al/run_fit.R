@@ -32,6 +32,7 @@ e <- Sys.time()
 
 res <- list(
   sample_id = sample_id,
+  reconstr  = fit$reconstructions,
   tree      = fit$tree,
   time      = e - s
 )

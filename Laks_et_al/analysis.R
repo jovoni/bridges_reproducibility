@@ -60,7 +60,7 @@ cn_data = cn_data %>%
   dplyr::mutate(CN = state) %>%
   dplyr::select(cell_id, sample_id, library_id, start, end, chr, CN)
 
-hm = bridges::plot_heatmap(cn_data, tree = bridges_fit$tree, to_plot = "CN", use_raster = T, ladderize = T, annotations = clone_df, raster_quality = 10)
+hm = bridges::plot_heatmap(cn_data, tree = bridges_fit$tree, to_plot = "CN", use_raster = T, ladderize = T, annotations = clone_df, raster_quality = 25)
 
 pdf("plot/heatmap.pdf", width = 16, height = 10)
 print(hm)
@@ -83,7 +83,7 @@ leaves_lenghts_df <- data.frame(
 ) %>% dplyr::left_join(clone_df, by = "cell_id") %>%
   dplyr::left_join(clone_snvs_df, by = "clone_id")
 
-leaves_lenghts_df %>%
+p_SNV_NJ_corr = leaves_lenghts_df %>%
   dplyr::group_by(clone_id) %>%
   dplyr::mutate(avg_length = mean(length), sd_length = sd(length)) %>%
   dplyr::select(clone_id, s, avg_length, sd_length) %>%
@@ -98,4 +98,13 @@ leaves_lenghts_df %>%
        y = "Average NJ root-to-leaf length",
        col = "Laks et al. clone id")
 
-ggsave("plot/SNV_NJ_correlation.pdf", width = 9, height = 7, plot = last_plot())
+ggsave("plot/SNV_NJ_correlation.pdf", width = 9, height = 7, plot = p_SNV_NJ_corr)
+
+p = p_SNV_NJ_corr + p_SNV_CNA_corr +
+  patchwork::plot_layout(design = "AB", guides = "collect") +
+  patchwork::plot_annotation(tag_levels = list(c("C","D")))
+
+ggsave("plot/correlations.pdf", width = 9, height = 4, plot = p)
+
+
+
