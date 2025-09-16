@@ -22,3 +22,16 @@ dissimilarities_df = lapply(sample_names, function(sample_id) {
   compute_sibling_similarities(sample_id)
 }) %>% do.call(rbind, .)
 saveRDS(dissimilarities_df, "results/metrics/dissimilarities.rds")
+
+# RF distances
+df_v_sitka = lapply(sample_names, function(sample_id) {
+  print(sample_id)
+  compute_rf_distance_w_sitka(sample_id)  
+}) %>% do.call("bind_rows", .)
+
+df_v_lazac = lapply(sample_names, function(sample_id) {
+  print(sample_id)
+  compute_rf_distance_w_lazac(sample_id)
+}) %>% do.call("bind_rows", .)
+
+saveRDS(dplyr::bind_rows(df_v_sitka, df_v_lazac), "results/metrics/RF_against.rds")

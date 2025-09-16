@@ -1,4 +1,4 @@
-.libPaths("/home/santacg/R_env/lib/R/library")
+
 rm(list = ls())
 require(tidyverse)
 library(ape)
@@ -47,13 +47,36 @@ read_phy = function(path) {
   mat
 }
 
+get_n_events = function(sim_idx) {
+  sim = params_df[sim_idx, ]
+  sim_id = sim$sim_id
+  
+  sim =readRDS(file.path(DATA_DIR, sim_id, "simulation.RDS"))
+  
+  N = lapply(sim$cell_history$cn_event, function(e) {
+    if (e == "none") return(0)
+    strsplit(e, ",") %>% unlist() %>% length()  
+  }) %>% unlist() %>% sum()
+  
+  bridges_tree = readRDS(file.path(RES_DIR, sim_id, "bridges_tree.RDS"))
+  n_bridges = bridges_tree$edge.length %>% sum()
+  
+  medicc_tree = ape::read.tree(file.path(RES_DIR, sim_id, "medicc2", "medicc_input_final_tree.new"))
+  n_medicc = medicc_tree$edge.length %>% sum()
+  
+  params_df[sim_idx, ] %>% dplyr::mutate(N = N, n_bridges = n_bridges, n_medicc = n_medicc)
+}
+
 get_correlation_results = function(sim_idx) {
+  
   sim = params_df[sim_idx, ]
   sim_id = sim$sim_id
   
   # Bridges
   bridges_D = readRDS(file.path(RES_DIR, sim_id, "bridges_D.RDS"))
   cell_order = colnames(bridges_D)
+  cell_order = cell_order[cell_order != "diploid"]
+  bridges_D = bridges_D[cell_order, cell_order]
   
   # # Medalt
   # medalt_D = readRDS(file.path(RES_DIR, sim_id, "medalt_D.RDS"))
@@ -183,6 +206,13 @@ plots$rmse_plot
 plots$cor_plot
 
 #N = nrow(params_df)
+N = 28
+df_events = lapply(1:N, function(sim_idx) {
+  print(sim_idx)
+  get_n_events(sim_idx)
+}) %>% do.call("bind_rows", .)
+
+
 N = 60
 df = lapply(1:N, function(sim_idx) {
   print(sim_idx)

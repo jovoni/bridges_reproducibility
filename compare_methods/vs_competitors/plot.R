@@ -3,6 +3,7 @@ rm(list = ls())
 library(ggplot2)
 library(tidyverse)
 library(patchwork)
+library(ggbeeswarm)
 source("utils_plot.R")
 library(ggsci)
 
@@ -17,12 +18,14 @@ res = res %>%
   dplyr::filter(n == max(n)) %>% 
   dplyr::mutate(algorithm = ifelse(algorithm == "root", "dice", algorithm))
 
-res$algorithm = factor(res$algorithm, levels = c("bridges", "medicc", "dice", "hamming", "lazac", "sitka", "euclidean"))
+res$algorithm = factor(res$algorithm, levels = c("bridges", "medicc", "dice", "hamming", "lazac", "euclidean", "sitka"))
 
 p_time = res %>% 
   dplyr::filter(metric == "seconds") %>% 
   ggplot(mapping = aes(x = as.factor(ncells), y = value, col = algorithm)) +
-  geom_jitter() +
+  #geom_jitter() +
+  geom_beeswarm() +
+  # geom_quasirandom() +
   #geom_line() +
   scale_y_continuous(transform = "log10") +
   theme_bw() +
@@ -30,12 +33,19 @@ p_time = res %>%
   labs(x = "Number of cells", y = "Time (s)", col = "Algorithm")
 p_time
 
+res %>% 
+  dplyr::filter(metric == "RF normalized") %>% 
+  ggplot(mapping = aes(x = factor(ncells), y = value, col = algorithm)) +
+  geom_boxplot() +
+  facet_wrap(~bfb_rate) +
+  scale_colour_nejm() +
+  theme_bw()
+
 p_RF_normed = plot_normed_boxplots(res, "RF distance", split_by = "BFB") +
   scale_colour_nejm() +
   theme(axis.ticks.x = element_blank(), axis.text.x = element_blank()) +
   theme(legend.position = "none") +
   labs(y = "Norm'ed RF distance", col = "Algorithm")
-p_RF_normed
 
 p_GRF_normed = plot_normed_boxplots(res, "Generalized RF", split_by = "BFB") +
   scale_colour_nejm() +
@@ -43,6 +53,13 @@ p_GRF_normed = plot_normed_boxplots(res, "Generalized RF", split_by = "BFB") +
   theme(legend.position = "none") +
   labs(y = "Norm'ed GRF", col = "Algorithm")
 p_GRF_normed
+
+p_Quartet_normed = plot_normed_boxplots(res, "Quartet divergence", split_by = "BFB") +
+  scale_colour_nejm() +
+  theme(axis.ticks.x = element_blank(), axis.text.x = element_blank()) +
+  theme(legend.position = "none") +
+  labs(y = "Norm'ed MCI", col = "Algorithm")
+p_Quartet_normed
 
 p_MCI_normed = plot_normed_boxplots(res, "Mutual Clustering Info", split_by = "BFB") +
   scale_colour_nejm() +

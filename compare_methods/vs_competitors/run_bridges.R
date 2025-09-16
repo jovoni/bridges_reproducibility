@@ -16,21 +16,49 @@ DATA_DIR = "../data/"
 RES_DIR = "results/"
 dir.create(RES_DIR, recursive = T)
 
-
 # Process only the row corresponding to this task ID
 i <- task_id
 print(paste("Processing task", i, "of", nrow(params_df)))
-
 sim_id = params_df[i,]$sim_id
-
+# sim_id = "b6a86e3dab763866"
 # Read input matrix
 input = readRDS(file.path(DATA_DIR, sim_id, "simulation.RDS"))
 
 s = Sys.time()
 res = bridges::fit(input$cna_data, alleles = c("A", "B"), 
-                   k_jitter_fix = 0, bfb_penalty = 0)
+                   k_jitter_fix = 0, bfb_penalty = 0, tree_func = ape::fastme.bal)
 e = Sys.time()
 bridges_time = as.numeric(e - s, unit = "secs")
+
+#get_tree_metrics(ape::collapse.singles(input$tree), res$tree)
+#get_tree_metrics(ape::collapse.singles(input$tree), ape::read.tree(paste0("results/",sim_id,"/medicc2/medicc_input_final_tree.new")))
+
+# bridges::plot_heatmap(input$cna_data, tree = res$tree)
+
+# tree1 = res$tree
+# tree2 = input$tree
+# 
+# common_taxa <- intersect(tree1$tip.label, tree2$tip.label)
+# tree1 <- ape::drop.tip(tree1, setdiff(tree1$tip.label, common_taxa))
+# tree2 <- ape::drop.tip(tree2, setdiff(tree2$tip.label, common_taxa))
+# 
+# rf_dist <- phangorn::RF.dist(tree1, tree2)
+# rf_normalized <- phangorn::RF.dist(tree1, tree2, normalize = T)
+# 
+# if (tree1$Nnode >= 477) {
+#   quartet_divergence = NA
+# } else {
+#   sq_status <- Quartet::QuartetStatus(tree1, tree2)
+#   quartet_divergence = Quartet::QuartetDivergence(sq_status, similarity = F)  
+# }
+
+#sim_metrics <- Quartet::SimilarityMetrics(sq_status, similarity = F)
+
+#rf_normalized = TreeDist::RobinsonFoulds(tree1, tree2, normalize = T, similarity = F)
+
+# names = c("RF distance", "Quartet divergence", "RF normalized")
+#values = c(rf_dist, quartet_divergence, rf_normalized)
+#dplyr::tibble(metric = names, value = values)
 
 bridges_tree = res$tree
 bridges_D = res$D

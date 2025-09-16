@@ -1,3 +1,4 @@
+
 rm(list = ls())
 require(tidyverse)
 library(ape)
@@ -15,20 +16,21 @@ params_df = read.delim("../data/param_grid.csv", sep = ",")
 DATA_DIR = "../data/"
 RES_DIR = "results/"
 dir.create(RES_DIR, recursive = T)
-i = 2
 
 message("Reading params")
 params_df = read.delim(file.path(DATA_DIR, "param_grid.csv"), sep = ",")
 message("Starting inference")
 
+
+
 RES = parallel::mclapply(1:nrow(params_df), function(i) {
-#RES = parallel::mclapply(1:N, function(i) {
+#RES = parallel::mclapply(c(c(1:44), c(46:60)), function(i) {
   print(i)
   sim = params_df[i,]
   sim_id = sim$sim_id
 
   data = readRDS(file.path(DATA_DIR, sim_id, "simulation.RDS"))
-  true_tree = data$tree
+  true_tree = ape::collapse.singles(data$tree)
 
   # Bridges
   bridges_tree = readRDS(file.path(RES_DIR, sim_id, "bridges_tree.RDS"))
@@ -91,7 +93,30 @@ RES = parallel::mclapply(1:nrow(params_df), function(i) {
     MutualClusteringInf = TreeDist::MutualClusteringInfo(tree1, tree2, normalize = T)
     
     if (tree1$Nnode >= 477) {
-      quartet_divergence = NA
+      
+      calculate_q = function(tree1, tree2) {
+        tryCatch({
+          d_raw <- Quartet::TQDist(list(tree1, tree2))[1, 2]
+          n <- length(common_taxa)
+          Q <- (n*(n-1)*(n-2)*(n-3)) / 24   # computed in double, not integer
+          d_norm <- d_raw / Q
+          quartet_divergence = d_norm
+          return(quartet_divergence)
+        }, error = function(e) {
+          dist_mat <- ape::cophenetic.phylo(tree2)
+          tree2_rebuilt <- ape::nj(dist_mat)  # neighbor-joining reconstruction
+          tree2_rebuilt$tip.label <- rownames(dist_mat)
+          d_raw <- Quartet::TQDist(list(tree1, tree2_rebuilt))[1, 2]
+          n <- length(common_taxa)
+          Q <- (n*(n-1)*(n-2)*(n-3)) / 24   # computed in double, not integer
+          d_norm <- d_raw / Q
+          quartet_divergence = d_norm
+          return(quartet_divergence)
+        })
+      }
+      
+      quartet_divergence = calculate_q(tree1, tree2)
+      
     } else {
       
       calculate_q = function(tree1, tree2) {

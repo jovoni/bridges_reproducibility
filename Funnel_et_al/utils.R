@@ -370,3 +370,50 @@ compute_best_f1 = function(sample_id) {
     f1_sitka = f1_sitka
   )
 }
+
+
+# 4.) RF ####
+get_tree_metrics = function(tree1, tree2) {
+  common_taxa <- intersect(tree1$tip.label, tree2$tip.label)
+  tree1 <- ape::drop.tip(tree1, setdiff(tree1$tip.label, common_taxa))
+  tree2 <- ape::drop.tip(tree2, setdiff(tree2$tip.label, common_taxa))
+  
+  rf_dist <- phangorn::RF.dist(tree1, tree2)
+  rf_normalized <- phangorn::RF.dist(tree1, tree2, normalize = T)
+  
+  names = c("RF distance", "RF normalized")
+  values = c(rf_dist, rf_normalized)
+  dplyr::tibble(metric = names, value = values)
+}
+
+compute_rf_distance_w_sitka = function(sample_id) {
+  fit = readRDS(paste0("results/bridges_trees/", sample_id, ".rds"))
+  labels_df = get_labels(sample_id)
+  keep = intersect(labels_df$cell_id, fit$tree$tip.label)
+  tree_bridges <- keep.tip(fit$tree, keep)
+  tree_bridges$tip.label = paste0("cell_", tree_bridges$tip.label)
+  
+  sitka_tree = ape::read.tree(paste0("signatures_dataset/sitka_trees/",sample_id,"-cn-tree.newick"))
+  labels_df_sitka = labels_df %>% dplyr::mutate(cell_id = paste0("cell_", cell_id))
+  keep = intersect(labels_df_sitka$cell_id, sitka_tree$tip.label)
+  tree_sitka <- keep.tip(sitka_tree, keep)
+  
+  get_tree_metrics(tree1 = tree_bridges, tree2 = tree_sitka) %>% dplyr::mutate(sample_id = sample_id, against = "Sitka")
+}
+
+compute_rf_distance_w_lazac = function(sample_id) {
+  fit = readRDS(paste0("results/bridges_trees/", sample_id, ".rds"))
+  labels_df = get_labels(sample_id)
+  keep = intersect(labels_df$cell_id, fit$tree$tip.label)
+  tree_bridges <- keep.tip(fit$tree, keep)
+  
+  if (file.exists(paste0("signatures_dataset/lazac_trees/",sample_id,"_hscn_tree.newick"))) {
+    newick_text = read_file(paste0("signatures_dataset/lazac_trees/",sample_id,"_hscn_tree.newick"))
+    newick_text = paste0(newick_text, ";")
+    tree = ape::read.tree(text = newick_text)
+    keep = intersect(labels_df$cell_id, tree$tip.label)
+    tree_lazac <- keep.tip(tree, keep)
+    
+    return(get_tree_metrics(tree1 = tree_bridges, tree2 = tree_lazac) %>% dplyr::mutate(sample_id = sample_id, against = "Lazac"))
+  }
+}

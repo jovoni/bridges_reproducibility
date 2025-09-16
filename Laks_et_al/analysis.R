@@ -14,10 +14,12 @@ clone_colors = c(
   "I" = '#cab2d6'
 )
 
+tree = ape::read.tree("data/ov2295_tree.new")
 bridges_fit = readRDS("results/bridges_fit.rds")
 #bridges_fit = readRDS("results/bridges_fit_wo_reconstruction.rds")
 clone_df = read.delim("data/ov2295_clone_clusters.csv", sep = ",")
 clone_snvs_df <- read_csv("data/ov2295_clone_snvs.csv")
+
 clone_snvs_df = clone_snvs_df %>%
   dplyr::group_by(clone_id) %>%
   dplyr::summarise(s = sum(is_present))
@@ -100,11 +102,21 @@ p_SNV_NJ_corr = leaves_lenghts_df %>%
 
 ggsave("plot/SNV_NJ_correlation.pdf", width = 9, height = 7, plot = p_SNV_NJ_corr)
 
-p = p_SNV_NJ_corr + p_SNV_CNA_corr +
-  patchwork::plot_layout(design = "AB", guides = "collect") +
-  patchwork::plot_annotation(tag_levels = list(c("C","D")))
 
-ggsave("plot/correlations.pdf", width = 9, height = 4, plot = p)
+UMAP_plot = readRDS("results/embedding.RDS") %>% 
+  ggplot(mapping = aes(x = UMAP_1, y = UMAP_2, col = clone_id)) +
+  geom_point() +
+  theme_bw() +
+  scale_color_manual(values = clone_colors) +
+  labs(x = "UMAP 1",
+       y = "UMAP 2",
+       col = "Laks et al. clone id") +
+  theme(legend.position = "none")
 
 
+p = UMAP_plot + p_SNV_NJ_corr + p_SNV_CNA_corr +
+  patchwork::plot_layout(design = "ABBCC", guides = "collect") +
+  patchwork::plot_annotation(tag_levels = list(c("C","D", "E")))
 
+#ggsave("plot/correlations.pdf", width = 9, height = 4, plot = p)
+ggsave("plot/correlations.pdf", width = 12, height = 4, plot = p)

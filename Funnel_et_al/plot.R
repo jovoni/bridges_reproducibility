@@ -1,9 +1,22 @@
 
 library(ggsci)
+library(tidyverse)
+library(patchwork)
 
 df_clonal_discordance = readRDS("results/metrics/clonal_discordance.rds")
 dissmilarities = readRDS("results/metrics/dissimilarities.rds")
 youden_df = readRDS("results/metrics/youden.rds")
+rf_df = readRDS("results/metrics/RF_against.rds")
+
+rf_df %>%
+  dplyr::group_by(sample_id) %>%
+  dplyr::mutate(n = n()) %>%
+  dplyr::mutate(Dataset = ifelse(n == 2, "Funnel", "Funnel+")) %>% 
+  dplyr::filter(metric == "RF normalized") %>% 
+  ggplot(mapping = aes(x = against, y = value, fill = against)) +
+  geom_boxplot() +
+  theme_bw() +
+  scale_fill_bmj() 
 
 p_clonal_discordance = df_clonal_discordance %>%
   dplyr::group_by(sample_id) %>%
